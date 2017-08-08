@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Australian Football Score Keeper</string>
+
+    <string name="menu_scoring_rules">Scoring rules</string>
 </resources>
