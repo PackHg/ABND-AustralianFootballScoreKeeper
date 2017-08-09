@@ -1,6 +1,8 @@
 package com.oz_heng.apps.android.australianfootballscorekeeper;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,20 +13,23 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     // Variables containing Teams A and B scores
-    private int teamAGoalScore = 0;
-    private int teamABehindScore = 0;
-    private int teamATotalScore = 0;
-    private int teamBGoalScore = 0;
-    private int teamBBehindScore = 0;
-    private int teamBTotalScore = 0;
+    int teamAGoalScore = 0;
+    int teamABehindScore = 0;
+    int teamATotalScore = 0;
+    int teamBGoalScore = 0;
+    int teamBBehindScore = 0;
+    int teamBTotalScore = 0;
 
     // Teams A & B score TextViews
-    private TextView teamAGoalScoreTextView;
-    private TextView teamABehindScoreTextView;
-    private TextView teamATotalScoreTextView;
-    private TextView teamBGoalScoreTextView;
-    private TextView teamBBehindScoreTextView;
-    private TextView teamBTotalScoreTextView;
+    TextView teamAGoalScoreTextView;
+    TextView teamABehindScoreTextView;
+    TextView teamATotalScoreTextView;
+    TextView teamBGoalScoreTextView;
+    TextView teamBBehindScoreTextView;
+    TextView teamBTotalScoreTextView;
+
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    final String fragmentTag = "Scoring Rules Dialog Fragment";
 
 
     @Override
@@ -32,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Display in portrait mode.
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        // Set UI in portrait mode.
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         teamATotalScoreTextView= (TextView) findViewById(R.id.team_a_total_score);
         teamBTotalScoreTextView= (TextView) findViewById(R.id.team_b_total_score);
@@ -93,6 +98,32 @@ public class MainActivity extends AppCompatActivity {
                 updaTeamBTotalScore();
             }
         });
+
+        // If Reset button is clicked, set all the scores to 0.
+        Button resetButton = (Button) findViewById(R.id.reset);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetScores();
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_scoring_rules:
+                ScoringRulesDialog scoringRulesDialog = new ScoringRulesDialog();
+                scoringRulesDialog.show(fragmentManager, fragmentTag);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -111,18 +142,20 @@ public class MainActivity extends AppCompatActivity {
         teamBTotalScoreTextView.setText(String.valueOf(teamBTotalScore));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private void resetScores() {
+        teamAGoalScore = 0;
+        teamABehindScore = 0;
+        teamATotalScore = 0;
+        teamBGoalScore = 0;
+        teamBBehindScore = 0;
+        teamBTotalScore = 0;
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_scoring_rules:
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+        teamAGoalScoreTextView.setText(String.valueOf(0));
+        teamABehindScoreTextView.setText(String.valueOf(0));
+        teamATotalScoreTextView.setText(String.valueOf(0));
+        teamBGoalScoreTextView.setText(String.valueOf(0));
+        teamBBehindScoreTextView.setText(String.valueOf(0));
+        teamBTotalScoreTextView.setText(String.valueOf(0));
     }
 }
+
