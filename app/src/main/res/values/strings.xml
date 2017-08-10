@@ -2,8 +2,16 @@
     <string name="app_name">Australian Football Score Keeper</string>
 
     <string name="menu_scoring_rules">About Australian Rules Football</string>
+    <string name="team_a">Team A</string>
+    <string name="team_b">Team B</string>
+    <string name="goals">Goals</string>
+    <string name="behinds">Behinds</string>
+    <string name="total">Total</string>
+    <string name="goal">Goal</string>
+    <string name="behind">Behind</string>
+    <string name="reset">Reset</string>
 
-    <!-- DialogFragment about Australian Football -->
+    <!-- For DialogFragment about Australian Football -->
     <string name="oz_rules_football">Australian Rules Football</string>
     <string name="oz_football_intro">Australian Rules football is a home-grown Australian game that is affectionately known as Aussie Rules or Footy. It originated in Australia and is a unique Australian sporting experience as it is not played professionally in any other country! Different countries are however gaining interest in the sport and teams can be found in East Timor, The United States of America, Japan and New Zealand.</string>
     <string name="oz_football_the_game">Essentially, it’s about two opposing teams attempting to kick goals and finish the match with the biggest points tally. A goal is scored when the football is kicked through the taller posts (the goalposts) and is worth 6 points. If the football goes between either of the shorter outside posts (the behind posts), a behind is scored and 1 point is added to that team’s tally. The action continues through four quarters and for close to two hours.</string>
