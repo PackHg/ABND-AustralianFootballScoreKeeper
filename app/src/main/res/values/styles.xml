@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/colorRed</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
     <style name="TeamTitleTextViewStyle">
@@ -14,7 +16,7 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">16dp</item>
-        <item name="android:textColor">#616161</item>
+        <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">14sp</item>
     </style>
 
@@ -23,7 +25,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textColor">#000000</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
     <style name="KickButtonStyle">
@@ -32,13 +34,15 @@
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginLeft">24dp</item>
         <item name="android:layout_marginRight">24dp</item>
+        <item name="android:background">@color/colorBlueAccent700</item>
     </style>
 
     <style name="ResetButtonStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:background">@color/colorBlueAccent700</item>
     </style>
 
 </resources>

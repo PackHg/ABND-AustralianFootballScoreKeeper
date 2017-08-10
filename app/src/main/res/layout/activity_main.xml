@@ -13,6 +13,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="85dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/activity_margin"
+            android:scaleType="centerCrop"
+            android:src="@drawable/afl_logo" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +54,7 @@
                         android:id="@+id/team_a_goal_score"
                         style="@style/ScoreTextViewStyle"
                         android:gravity="center"
-                        android:textSize="28sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
                 </LinearLayout>
@@ -69,7 +77,7 @@
                         android:id="@+id/team_a_behind_score"
                         style="@style/ScoreTextViewStyle"
                         android:gravity="center"
-                        android:textSize="28sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
                 </LinearLayout>
@@ -92,7 +100,7 @@
                         android:id="@+id/team_a_total_score"
                         style="@style/ScoreTextViewStyle"
                         android:gravity="center"
-                        android:textSize="56sp"
+                        android:textSize="28sp"
                         android:textStyle="bold"
                         tools:text="0" />
                 </LinearLayout>
@@ -142,7 +150,7 @@
                         android:id="@+id/team_b_goal_score"
                         style="@style/ScoreTextViewStyle"
                         android:gravity="center"
-                        android:textSize="28sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
                 </LinearLayout>
@@ -165,7 +173,7 @@
                         android:id="@+id/team_b_behind_score"
                         style="@style/ScoreTextViewStyle"
                         android:gravity="center"
-                        android:textSize="28sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
                 </LinearLayout>
@@ -188,7 +196,7 @@
                         android:id="@+id/team_b_total_score"
                         style="@style/ScoreTextViewStyle"
                         android:gravity="center"
-                        android:textSize="56sp"
+                        android:textSize="28sp"
                         android:textStyle="bold"
                         tools:text="0" />
                 </LinearLayout>
