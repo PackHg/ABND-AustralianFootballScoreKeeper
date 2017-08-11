@@ -9,26 +9,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin"
-        android:text="@string/oz_football_intro"
-        android:textAppearance="?android:textAppearanceSmall" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin"
-        android:scaleType="centerCrop"
-        android:src="@drawable/footy_posts" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:text="@string/oz_football_intro"
+            android:textAppearance="?android:textAppearanceSmall" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin"
-        android:text="@string/oz_football_the_game"
-        android:textAppearance="?android:textAppearanceSmall" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:scaleType="centerCrop"
+            android:src="@drawable/footy_posts" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:text="@string/oz_football_the_game"
+            android:textAppearance="?android:textAppearanceSmall" />
 
     </LinearLayout>
 

@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 
-
 /**
  * Created by Pack Heng on 9/08/17
  * pack@oz-heng.com

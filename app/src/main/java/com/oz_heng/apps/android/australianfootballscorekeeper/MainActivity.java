@@ -13,31 +13,33 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Variables containing Teams A and B scores
-    int teamAGoalScore = 0;
-    int teamABehindScore = 0;
-    int teamBGoalScore = 0;
-    int teamBBehindScore = 0;
-
-    // Teams A & B score TextViews
-    TextView teamAGoalScoreTextView;
-    TextView teamABehindScoreTextView;
-    TextView teamATotalScoreTextView;
-    TextView teamBGoalScoreTextView;
-    TextView teamBBehindScoreTextView;
-    TextView teamBTotalScoreTextView;
-
-    // Keys to save the scores if this activity is going to be stopped.
-    final static String KEY_TEAM_A_GOAL_SCORE = "teamAGoalScore";
-    final static String KEY_TEAM_A_BEHIND_SCORE = "teamABehindScore";
-    final static String KEY_TEAM_B_GOAL_SCORE = "teamBGoalScore";
-    final static String KEY_TEAM_B_BEHIND_SCORE = "teamBBehindScore";
-
-    // Preferences name used to save the teams scores.
+    // Tag used to save the teams scores with SharedPreferences.
     final static String TEAMS_SCORES = "com.oz_heng.apps.android.australianfootballscorekeeper.TeamsScores";
 
-    FragmentManager fragmentManager = getSupportFragmentManager();
+    // TAG used for DialogFragment
     final static String SCORING_RULES_DIALOG_FRAGMENT_TAG = "com.oz_heng.apps.android.australianfootballscorekeeper.ScoringRulesDialogFragment";
+
+    final FragmentManager fragmentManager = getSupportFragmentManager();
+
+    // Keys to save the scores if this activity is going to be stopped.
+    private final static String KEY_TEAM_A_GOAL_SCORE = "teamAGoalScore";
+    private final static String KEY_TEAM_A_BEHIND_SCORE = "teamABehindScore";
+    private final static String KEY_TEAM_B_GOAL_SCORE = "teamBGoalScore";
+    private final static String KEY_TEAM_B_BEHIND_SCORE = "teamBBehindScore";
+
+    // Variables containing Teams A and B scores
+    private int teamAGoalScore = 0;
+    private int teamABehindScore = 0;
+    private int teamBGoalScore = 0;
+    private int teamBBehindScore = 0;
+
+    // Teams A & B score TextViews
+    private TextView teamAGoalScoreTextView;
+    private TextView teamABehindScoreTextView;
+    private TextView teamATotalScoreTextView;
+    private TextView teamBGoalScoreTextView;
+    private TextView teamBBehindScoreTextView;
+    private TextView teamBTotalScoreTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,18 +61,18 @@ public class MainActivity extends AppCompatActivity {
         // Identify the TextViews.
         teamAGoalScoreTextView = (TextView) findViewById(R.id.team_a_goal_score);
         teamABehindScoreTextView = (TextView) findViewById(R.id.team_a_behind_score);
-        teamATotalScoreTextView= (TextView) findViewById(R.id.team_a_total_score);
+        teamATotalScoreTextView = (TextView) findViewById(R.id.team_a_total_score);
         teamBGoalScoreTextView = (TextView) findViewById(R.id.team_b_goal_score);
         teamBBehindScoreTextView = (TextView) findViewById(R.id.team_b_behind_score);
-        teamBTotalScoreTextView= (TextView) findViewById(R.id.team_b_total_score);
+        teamBTotalScoreTextView = (TextView) findViewById(R.id.team_b_total_score);
 
         // Display the teams scores.
         teamAGoalScoreTextView.setText(String.valueOf(teamAGoalScore));
         teamABehindScoreTextView.setText(String.valueOf(teamABehindScore));
         teamBGoalScoreTextView.setText(String.valueOf(teamBGoalScore));
         teamBBehindScoreTextView.setText(String.valueOf(teamBBehindScore));
-        updaTeamATotalScore();
-        updaTeamBTotalScore();
+        updateTeamATotalScore();
+        updapteTeamBTotalScore();
 
         /* If Team A Goal Button is clicked, add 6 points to Team A Goal score TextView
            and update Team A total score TextView.
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 teamAGoalScore += 6;
                 teamAGoalScoreTextView.setText(String.valueOf(teamAGoalScore));
-                updaTeamATotalScore();
+                updateTeamATotalScore();
             }
         });
 
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 teamABehindScore += 1;
                 teamABehindScoreTextView.setText(String.valueOf(teamABehindScore));
-                updaTeamATotalScore();
+                updateTeamATotalScore();
             }
         });
 
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 teamBGoalScore += 6;
                 teamBGoalScoreTextView.setText(String.valueOf(teamBGoalScore));
-                updaTeamBTotalScore();
+                updapteTeamBTotalScore();
             }
         });
 
@@ -120,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 teamBBehindScore += 1;
                 teamBBehindScoreTextView.setText(String.valueOf(teamBBehindScore));
-                updaTeamBTotalScore();
+                updapteTeamBTotalScore();
             }
         });
 
@@ -169,14 +171,14 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Update Team A total score
      */
-    private void updaTeamATotalScore() {
+    private void updateTeamATotalScore() {
         teamATotalScoreTextView.setText(String.valueOf(teamAGoalScore + teamABehindScore));
     }
 
     /**
      * Update Team B total score
      */
-    private void updaTeamBTotalScore() {
+    private void updapteTeamBTotalScore() {
         teamBTotalScoreTextView.setText(String.valueOf(teamBGoalScore + teamBBehindScore));
     }
 
