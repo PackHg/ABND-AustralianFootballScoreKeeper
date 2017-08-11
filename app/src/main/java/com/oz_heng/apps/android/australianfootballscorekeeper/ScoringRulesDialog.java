@@ -1,12 +1,12 @@
 package com.oz_heng.apps.android.australianfootballscorekeeper;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * Created by Pack Heng on 9/08/17
@@ -14,29 +14,47 @@ import android.view.LayoutInflater;
  */
 
 public class ScoringRulesDialog extends DialogFragment {
-
-    @NonNull
+    @Nullable
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.dialog_scoring_rules, container, false);
+        getDialog().setTitle(R.string.oz_rules_football);
 
-        // Get the layout inflater
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        Button ok = (Button) rootView.findViewById(R.id.button_ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Dismiss this DialogFragment
+                dismiss();
+            }
+        });
 
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.dialog_scoring_rules, null))
-            .setTitle(R.string.oz_rules_football)
-            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    if (dialogInterface != null) {
-                        dialogInterface.dismiss();
-                    }
-                }
-            });
-
-        // Create the AlertDialog object and return it
-        return builder.create();
+        return rootView;
     }
+
+    //    @NonNull
+//    @Override
+//    public Dialog onCreateDialog(Bundle savedInstanceState) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//
+//        // Get the layout inflater
+//        LayoutInflater inflater = getActivity().getLayoutInflater();
+//
+//        // Inflate and set the layout for the dialog
+//        // Pass null as the parent view because its going in the dialog layout
+//        builder.setView(inflater.inflate(R.layout.dialog_scoring_rules, null))
+//            .setTitle(R.string.oz_rules_football)
+//            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    if (dialogInterface != null) {
+//                        dialogInterface.dismiss();
+//                    }
+//                }
+//            });
+//
+//        // Create the AlertDialog object and return it
+//        return builder.create();
+//    }
 }

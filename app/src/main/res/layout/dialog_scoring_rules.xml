@@ -31,6 +31,14 @@
             android:text="@string/oz_football_the_game"
             android:textAppearance="?android:textAppearanceSmall" />
 
+        <Button
+            android:id="@+id/button_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@color/colorBlueAccent700"
+            android:text="@string/ok" />
+
     </LinearLayout>
 
 </ScrollView>
