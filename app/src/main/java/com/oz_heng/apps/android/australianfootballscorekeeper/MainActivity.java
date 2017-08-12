@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     /* If Team A Goal Button is clicked, add 6 points to Team A Goal score TextView
        and update Team A total score TextView.
      */
-    @OnClick(R.id.team_a_goal)
+    @OnClick(R.id.button_team_a_goal)
     public void updateTeamA_GoalScore(View view) {
         teamA_GoalScore += 6;
         teamA_GoalScoreTextView.setText(String.valueOf(teamA_GoalScore));
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     /* If Team A Behind Button is clicked, add 1 point to Team A Behind score TextView
        and update Team A total score TextView.
      */
-    @OnClick(R.id.team_a_behind)
+    @OnClick(R.id.button_team_a_behind)
     public void updateTeamA_BehindScore(View view) {
         teamA_BehindScore ++;
         teamA_BehindScoreTextView.setText(String.valueOf(teamA_BehindScore));
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     /* If Team B Goal Button is clicked, add 6 points to Team B Goal score TextView
        and update Team B total score TextView.
      */
-    @OnClick(R.id.team_b_goal)
+    @OnClick(R.id.button_team_b_goal)
     public void updateTeamB_GoalScore(View view) {
         teamB_GoalScore += 6;
         teamB_GoalScoreTextView.setText(String.valueOf(teamB_GoalScore));
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
     /* If Team B Behind Button is clicked, add 1 point to Team B Behind score TextView
        and update Team B total score TextView.
      */
-    @OnClick(R.id.team_b_behind)
+    @OnClick(R.id.button_team_b_behind)
     public void updateTeamB_BehindScore(View view) {
         teamB_BehindScore ++;
         teamB_BehindScoreTextView.setText(String.valueOf(teamB_BehindScore));
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // If Reset button is clicked, set all the scores to 0.
-    @OnClick(R.id.reset)
+    @OnClick(R.id.button_reset)
     public void reset(View view) {
         resetScores();
     }

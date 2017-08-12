@@ -106,12 +106,12 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/team_a_goal"
+                    android:id="@+id/button_team_a_goal"
                     style="@style/KickButtonStyle"
                     android:text="@string/goal" />
 
                 <Button
-                    android:id="@+id/team_a_behind"
+                    android:id="@+id/button_team_a_behind"
                     style="@style/KickButtonStyle"
                     android:text="@string/behind" />
             </LinearLayout>
@@ -202,19 +202,19 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/team_b_goal"
+                    android:id="@+id/button_team_b_goal"
                     style="@style/KickButtonStyle"
                     android:text="@string/goal" />
 
                 <Button
-                    android:id="@+id/team_b_behind"
+                    android:id="@+id/button_team_b_behind"
                     style="@style/KickButtonStyle"
                     android:text="@string/behind" />
             </LinearLayout>
         </LinearLayout>
 
         <Button
-            android:id="@+id/reset"
+            android:id="@+id/button_reset"
             style="@style/ResetButtonStyle"
             android:text="@string/reset" />
     </LinearLayout>

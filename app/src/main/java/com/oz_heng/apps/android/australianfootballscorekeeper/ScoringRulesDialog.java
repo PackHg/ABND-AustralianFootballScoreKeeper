@@ -6,7 +6,9 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Pack Heng on 9/08/17
@@ -20,16 +22,12 @@ public class ScoringRulesDialog extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_scoring_rules, container, false);
-
-        Button ok = (Button) rootView.findViewById(R.id.button_ok);
-        ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Dismiss this DialogFragment
-                dismiss();
-            }
-        });
-
+        ButterKnife.bind(this, rootView);
         return rootView;
+    }
+
+    @OnClick(R.id.button_ok)
+    public void dismiss(View view) {
+        dismiss();
     }
 }
