@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,17 +37,18 @@ public class MainActivity extends AppCompatActivity {
     private int teamB_BehindScore = 0;
 
     // Teams A & B score TextViews
-    private TextView teamA_GoalScoreTextView;
-    private TextView teamA_BehindScoreTextView;
-    private TextView teamA_TotalScoreTextView;
-    private TextView teamB_GoalScoreTextView;
-    private TextView teamB_BehindScoreTextView;
-    private TextView teamB_TotalScoreTextView;
+    @BindView(R.id.team_a_goal_score) TextView teamA_GoalScoreTextView;
+    @BindView(R.id.team_a_behind_score) TextView teamA_BehindScoreTextView;
+    @BindView(R.id.team_a_total_score) TextView teamA_TotalScoreTextView;
+    @BindView(R.id.team_b_goal_score) TextView teamB_GoalScoreTextView;
+    @BindView(R.id.team_b_behind_score) TextView teamB_BehindScoreTextView;
+    @BindView(R.id.team_b_total_score) TextView teamB_TotalScoreTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         // Set UI in portrait mode.
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -58,14 +62,6 @@ public class MainActivity extends AppCompatActivity {
             teamB_BehindScore = teamsScoresSP.getInt(KEY_TEAM_B_BEHIND_SCORE, teamB_BehindScore);
         }
 
-        // Identify the TextViews.
-        teamA_GoalScoreTextView = (TextView) findViewById(R.id.team_a_goal_score);
-        teamA_BehindScoreTextView = (TextView) findViewById(R.id.team_a_behind_score);
-        teamA_TotalScoreTextView = (TextView) findViewById(R.id.team_a_total_score);
-        teamB_GoalScoreTextView = (TextView) findViewById(R.id.team_b_goal_score);
-        teamB_BehindScoreTextView = (TextView) findViewById(R.id.team_b_behind_score);
-        teamB_TotalScoreTextView = (TextView) findViewById(R.id.team_b_total_score);
-
         // Display the teams scores.
         teamA_GoalScoreTextView.setText(String.valueOf(teamA_GoalScore));
         teamA_BehindScoreTextView.setText(String.valueOf(teamA_BehindScore));
@@ -73,67 +69,6 @@ public class MainActivity extends AppCompatActivity {
         teamB_BehindScoreTextView.setText(String.valueOf(teamB_BehindScore));
         updateTeamA_TotalScore();
         updapteTeamB_TotalScore();
-
-        /* If Team A Goal Button is clicked, add 6 points to Team A Goal score TextView
-           and update Team A total score TextView.
-         */
-        Button teamA_GoalButton = (Button) findViewById(R.id.team_a_goal);
-        teamA_GoalButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                teamA_GoalScore += 6;
-                teamA_GoalScoreTextView.setText(String.valueOf(teamA_GoalScore));
-                updateTeamA_TotalScore();
-            }
-        });
-
-        /* If Team A Behind Button is clicked, add 1 point to Team A Behind score TextView
-           and update Team A total score TextView.
-         */
-        Button teamA_BehindButton = (Button) findViewById(R.id.team_a_behind);
-        teamA_BehindButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                teamA_BehindScore += 1;
-                teamA_BehindScoreTextView.setText(String.valueOf(teamA_BehindScore));
-                updateTeamA_TotalScore();
-            }
-        });
-
-        /* If Team B Goal Button is clicked, add 6 points to Team B Goal score TextView
-           and update Team B total score TextView.
-         */
-        Button teamB_GoalButton = (Button) findViewById(R.id.team_b_goal);
-        teamB_GoalButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                teamB_GoalScore += 6;
-                teamB_GoalScoreTextView.setText(String.valueOf(teamB_GoalScore));
-                updapteTeamB_TotalScore();
-            }
-        });
-
-        /* If Team B Behind Button is clicked, add 1 point to Team B Behind score TextView
-           and update Team B total score TextView.
-         */
-        Button teamB_BehindButton = (Button) findViewById(R.id.team_b_behind);
-        teamB_BehindButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                teamB_BehindScore += 1;
-                teamB_BehindScoreTextView.setText(String.valueOf(teamB_BehindScore));
-                updapteTeamB_TotalScore();
-            }
-        });
-
-        // If Reset button is clicked, set all the scores to 0.
-        Button resetButton = (Button) findViewById(R.id.reset);
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resetScores();
-            }
-        });
     }
 
     @Override
@@ -166,6 +101,52 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt(KEY_TEAM_B_GOAL_SCORE, teamB_GoalScore);
         editor.putInt(KEY_TEAM_B_BEHIND_SCORE, teamB_BehindScore);
         editor.apply();
+    }
+
+    /* If Team A Goal Button is clicked, add 6 points to Team A Goal score TextView
+       and update Team A total score TextView.
+     */
+    @OnClick(R.id.team_a_goal)
+    public void updateTeamA_GoalScore(View view) {
+        teamA_GoalScore += 6;
+        teamA_GoalScoreTextView.setText(String.valueOf(teamA_GoalScore));
+        updateTeamA_TotalScore();
+    }
+
+    /* If Team A Behind Button is clicked, add 1 point to Team A Behind score TextView
+       and update Team A total score TextView.
+     */
+    @OnClick(R.id.team_a_behind)
+    public void updateTeamA_BehindScore(View view) {
+        teamA_BehindScore ++;
+        teamA_BehindScoreTextView.setText(String.valueOf(teamA_BehindScore));
+        updateTeamA_TotalScore();
+    }
+
+    /* If Team B Goal Button is clicked, add 6 points to Team B Goal score TextView
+       and update Team B total score TextView.
+     */
+    @OnClick(R.id.team_b_goal)
+    public void updateTeamB_GoalScore(View view) {
+        teamB_GoalScore += 6;
+        teamB_GoalScoreTextView.setText(String.valueOf(teamB_GoalScore));
+        updapteTeamB_TotalScore();
+    }
+
+    /* If Team B Behind Button is clicked, add 1 point to Team B Behind score TextView
+       and update Team B total score TextView.
+     */
+    @OnClick(R.id.team_b_behind)
+    public void updateTeamB_BehindScore(View view) {
+        teamB_BehindScore ++;
+        teamB_BehindScoreTextView.setText(String.valueOf(teamB_BehindScore));
+        updapteTeamB_TotalScore();
+    }
+
+    // If Reset button is clicked, set all the scores to 0.
+    @OnClick(R.id.reset)
+    public void reset(View view) {
+        resetScores();
     }
 
     /**
