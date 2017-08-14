@@ -48,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        if (savedInstanceState != null) {
+            teamA_GoalScore = savedInstanceState.getInt(KEY_TEAM_A_GOAL_SCORE);
+            teamA_BehindScore = savedInstanceState.getInt(KEY_TEAM_A_BEHIND_SCORE);
+            teamB_GoalScore = savedInstanceState.getInt(KEY_TEAM_B_GOAL_SCORE);
+            teamB_BehindScore = savedInstanceState.getInt(KEY_TEAM_B_BEHIND_SCORE);
+        }
+
         // Display the teams scores.
         teamA_GoalScoreTextView.setText(String.valueOf(teamA_GoalScore));
         teamA_BehindScoreTextView.setText(String.valueOf(teamA_BehindScore));
@@ -57,15 +64,15 @@ public class MainActivity extends AppCompatActivity {
         updapteTeamB_TotalScore();
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        teamA_GoalScore = savedInstanceState.getInt(KEY_TEAM_A_GOAL_SCORE);
-        teamA_BehindScore = savedInstanceState.getInt(KEY_TEAM_A_BEHIND_SCORE);
-        teamB_GoalScore = savedInstanceState.getInt(KEY_TEAM_B_GOAL_SCORE);
-        teamB_BehindScore = savedInstanceState.getInt(KEY_TEAM_B_BEHIND_SCORE);
-    }
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//
+//        teamA_GoalScore = savedInstanceState.getInt(KEY_TEAM_A_GOAL_SCORE);
+//        teamA_BehindScore = savedInstanceState.getInt(KEY_TEAM_A_BEHIND_SCORE);
+//        teamB_GoalScore = savedInstanceState.getInt(KEY_TEAM_B_GOAL_SCORE);
+//        teamB_BehindScore = savedInstanceState.getInt(KEY_TEAM_B_BEHIND_SCORE);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
