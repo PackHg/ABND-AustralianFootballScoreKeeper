@@ -1,7 +1,6 @@
 package com.oz_heng.apps.android.australianfootballscorekeeper;
 
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -49,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        // Set UI in portrait mode.
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // Restore the saved scores.
         SharedPreferences teamsScoresSP = getSharedPreferences(TEAMS_SCORES, 0);

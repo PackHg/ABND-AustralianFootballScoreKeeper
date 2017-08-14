@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Layout for the Australian Football score keeper -->
+<!-- Landscape orientation layout -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,18 +8,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
         android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/activity_margin"
-            android:scaleType="centerCrop"
-            android:src="@drawable/afl_logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,6 +26,21 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/afl_logo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
                 <TextView
                     style="@style/TeamTitleTextViewStyle"
                     android:text="@string/team_a" />
@@ -39,13 +48,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginBottom="@dimen/activity_margin_half"
                     android:orientation="horizontal">
 
                     <TextView
                         style="@style/ScoreTextViewStyle"
+                        android:layout_gravity="center_vertical"
                         android:gravity="start"
                         android:text="@string/goals"
                         android:textSize="14sp" />
@@ -57,14 +65,13 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginBottom="@dimen/activity_margin_half"
                     android:orientation="horizontal">
 
                     <TextView
@@ -80,14 +87,13 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginBottom="@dimen/activity_margin_half"
                     android:orientation="horizontal">
 
                     <TextView
@@ -99,21 +105,35 @@
                     <TextView
                         android:id="@+id/team_a_total_score"
                         style="@style/ScoreTextViewStyle"
+                        android:layout_gravity="start"
                         android:gravity="center"
                         android:textSize="28sp"
                         android:textStyle="bold"
                         tools:text="0" />
+
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/button_team_a_goal"
-                    style="@style/KickButtonStyle"
-                    android:text="@string/goal" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button_team_a_behind"
-                    style="@style/KickButtonStyle"
-                    android:text="@string/behind" />
+                    <Button
+                        android:id="@+id/button_team_a_goal"
+                        style="@style/KickButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/goal" />
+
+                    <Button
+                        android:id="@+id/button_team_a_behind"
+                        style="@style/KickButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/behind" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <View
@@ -124,8 +144,9 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_weight="3"
                 android:orientation="vertical">
 
                 <TextView
@@ -135,9 +156,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginBottom="@dimen/activity_margin_half"
                     android:orientation="horizontal">
 
                     <TextView
@@ -153,14 +172,13 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginBottom="@dimen/activity_margin_half"
                     android:orientation="horizontal">
 
                     <TextView
@@ -176,14 +194,13 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="0" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginBottom="@dimen/activity_margin_half"
                     android:orientation="horizontal">
 
                     <TextView
@@ -195,27 +212,44 @@
                     <TextView
                         android:id="@+id/team_b_total_score"
                         style="@style/ScoreTextViewStyle"
+                        android:layout_gravity="start"
                         android:gravity="center"
                         android:textSize="28sp"
                         android:textStyle="bold"
                         tools:text="0" />
+
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/button_team_b_goal"
-                    style="@style/KickButtonStyle"
-                    android:text="@string/goal" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button_team_b_behind"
-                    style="@style/KickButtonStyle"
-                    android:text="@string/behind" />
+                    <Button
+                        android:id="@+id/button_team_b_goal"
+                        style="@style/KickButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/goal" />
+
+                    <Button
+                        android:id="@+id/button_team_b_behind"
+                        style="@style/KickButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/behind" />
+
+                </LinearLayout>
+
             </LinearLayout>
+
         </LinearLayout>
 
         <Button
             android:id="@+id/button_reset"
             style="@style/ResetButtonStyle"
             android:text="@string/reset" />
+
     </LinearLayout>
+
 </ScrollView>
