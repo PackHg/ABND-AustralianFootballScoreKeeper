@@ -14,8 +14,13 @@ This app uses
 * Hardware Device: LGE Nexus 5 (Android 6.0.1, API 23)
 * Emulator and Virtual device: Nexus SX API 25
 
+## Screenshots
+<img src="https://raw.githubusercontent.com/PackHg/Udacity-ABND-AustralianFootballScoreKeeper/master/screenshots/screen01.png" width="300">
+<img src="https://raw.githubusercontent.com/PackHg/Udacity-ABND-AustralianFootballScoreKeeper/master/screenshots/screen02l.png" width="600">
+<img src="https://raw.githubusercontent.com/PackHg/Udacity-ABND-AustralianFootballScoreKeeper/master/screenshots/screen03.png" width="300">
+
 ## License
-Copyright (C) 2017 Pack Heng
+Copyright (C) 2017 Pack Heng (pack@oz-heng.com)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -28,4 +33,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
