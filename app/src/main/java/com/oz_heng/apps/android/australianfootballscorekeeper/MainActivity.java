@@ -1,5 +1,6 @@
 package com.oz_heng.apps.android.australianfootballscorekeeper;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     static final String KEY_TEAM_B_GOAL_SCORE = "teamB_GoalScore";
     static final String KEY_TEAM_B_BEHIND_SCORE = "teamB_BehindScore";
 
+    // Bundle for saving and resoring teams scores
+    static Bundle bundle = null;
+
     // Variables containing Teams A and B scores
     int teamA_GoalScore = 0;
     int teamA_BehindScore = 0;
@@ -48,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        if (savedInstanceState != null) {
-            teamA_GoalScore = savedInstanceState.getInt(KEY_TEAM_A_GOAL_SCORE);
-            teamA_BehindScore = savedInstanceState.getInt(KEY_TEAM_A_BEHIND_SCORE);
-            teamB_GoalScore = savedInstanceState.getInt(KEY_TEAM_B_GOAL_SCORE);
-            teamB_BehindScore = savedInstanceState.getInt(KEY_TEAM_B_BEHIND_SCORE);
+        bundle = savedInstanceState;
+
+        if (bundle != null) {
+            teamA_GoalScore = bundle.getInt(KEY_TEAM_A_GOAL_SCORE);
+            teamA_BehindScore = bundle.getInt(KEY_TEAM_A_BEHIND_SCORE);
+            teamB_GoalScore = bundle.getInt(KEY_TEAM_B_GOAL_SCORE);
+            teamB_BehindScore = bundle.getInt(KEY_TEAM_B_BEHIND_SCORE);
         }
 
         // Display the teams scores.
@@ -94,27 +100,27 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Save the scores if this activity is going to be stopped.
      */
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        SharedPreferences teamsScoresSP = getSharedPreferences(TEAMS_SCORES, 0);
-//        SharedPreferences.Editor editor = teamsScoresSP.edit();
-//        editor.putInt(KEY_TEAM_A_GOAL_SCORE, teamA_GoalScore);
-//        editor.putInt(KEY_TEAM_A_BEHIND_SCORE, teamA_BehindScore);
-//        editor.putInt(KEY_TEAM_B_GOAL_SCORE, teamB_GoalScore);
-//        editor.putInt(KEY_TEAM_B_BEHIND_SCORE, teamB_BehindScore);
-//        editor.apply();
-//    }
-
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt(KEY_TEAM_A_GOAL_SCORE, teamA_GoalScore);
-        outState.putInt(KEY_TEAM_A_BEHIND_SCORE, teamA_BehindScore);
-        outState.putInt(KEY_TEAM_B_GOAL_SCORE, teamB_GoalScore);
-        outState.putInt(KEY_TEAM_B_BEHIND_SCORE, teamB_BehindScore);
-
-        super.onSaveInstanceState(outState);
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences teamsScoresSP = getSharedPreferences(TEAMS_SCORES, 0);
+        SharedPreferences.Editor editor = teamsScoresSP.edit();
+        editor.putInt(KEY_TEAM_A_GOAL_SCORE, teamA_GoalScore);
+        editor.putInt(KEY_TEAM_A_BEHIND_SCORE, teamA_BehindScore);
+        editor.putInt(KEY_TEAM_B_GOAL_SCORE, teamB_GoalScore);
+        editor.putInt(KEY_TEAM_B_BEHIND_SCORE, teamB_BehindScore);
+        editor.apply();
     }
+
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        outState.putInt(KEY_TEAM_A_GOAL_SCORE, teamA_GoalScore);
+//        outState.putInt(KEY_TEAM_A_BEHIND_SCORE, teamA_BehindScore);
+//        outState.putInt(KEY_TEAM_B_GOAL_SCORE, teamB_GoalScore);
+//        outState.putInt(KEY_TEAM_B_BEHIND_SCORE, teamB_BehindScore);
+//
+//        super.onSaveInstanceState(outState);
+//    }
 
     /* If Team A Goal Button is clicked, add 6 points to Team A Goal score TextView
            and update Team A total score TextView.
